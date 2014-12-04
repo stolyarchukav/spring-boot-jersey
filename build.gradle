@@ -1,14 +1,21 @@
+group = 'andrey.test'
+
+ext {
+    bootVersion = '1.2.0.RC2'
+}
+
 buildscript {
     repositories {
         jcenter()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.0.M2")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.0.RC2")
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'spring-boot'
+apply plugin: 'maven'
 
 version = '0.0.1-SNAPSHOT'
 
@@ -20,12 +27,25 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-starter-jetty")
-    compile("org.springframework.boot:spring-boot-starter-jersey")
+    compile("org.springframework.boot:spring-boot-starter-web:${bootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-jetty:${bootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-jersey:${bootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-actuator:${bootVersion}")
 
-    compile("org.glassfish.jersey.media:jersey-media-json-jackson:2.7")
+    compile("org.glassfish.jersey.media:jersey-media-json-jackson:2.13")
 
-    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.springframework.boot:spring-boot-starter-test:${bootVersion}")
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
+
+//install {
+//    repositories.mavenInstaller {
+//        pom.project {
+//            parent {
+//                groupId 'org.springframework.boot'
+//                artifactId 'spring-boot-starter-parent'
+//                version '1.1.9.RELEASE'
+//            }
+//        }
+//    }
+//}

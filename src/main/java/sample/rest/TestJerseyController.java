@@ -1,7 +1,5 @@
 package sample.rest;
 
-import org.springframework.stereotype.Component;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -13,7 +11,6 @@ import java.net.URI;
 /**
  * Created by andrey on 10.11.14.
  */
-@Component
 @Produces(MediaType.APPLICATION_JSON)
 @Path("/jersey")
 public class TestJerseyController {
@@ -27,6 +24,7 @@ public class TestJerseyController {
     @Path("{param}")
     @GET
     public TestResource test2(@PathParam("param") String param) {
+        System.out.println(this);
         TestResource resource = new TestResource();
         resource.setFieldOne(param);
         resource.setFieldTwo(21);

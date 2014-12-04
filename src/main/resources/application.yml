@@ -1,0 +1,10 @@
+management:
+    port: 8081
+    context-path: /manage
+
+server:
+    port: 8080
+
+common:
+    restPackage: sample.rest
+    version: 21
