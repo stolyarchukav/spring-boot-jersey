@@ -7,4 +7,5 @@ server:
 
 common:
     restPackage: sample.rest
+    rootRestPath: rest
     version: 21
