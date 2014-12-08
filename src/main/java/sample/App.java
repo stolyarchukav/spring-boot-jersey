@@ -29,7 +29,7 @@ public class App {
     }
 
     public static void run(Object config, String... args) {
-        SpringApplication.run(new Object[] {App.class, config}, args);
+        SpringApplication.run(new Object[]{App.class, config}, args);
     }
 
     public static void run(String... args) {
@@ -37,7 +37,7 @@ public class App {
     }
 
     @Bean
-    public ServletRegistrationBean jerseyServlet() {
+    public ServletRegistrationBean jerseyServletRegistration() {
         ServletRegistrationBean registration = new ServletRegistrationBean(new ServletContainer(),
                 "/" + commonConfig.getRootRestPath() + "/*");
         registration.addInitParameter(ServletProperties.JAXRS_APPLICATION_CLASS, JerseyResourceConfig.class.getName());
